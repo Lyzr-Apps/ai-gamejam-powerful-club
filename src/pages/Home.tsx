@@ -360,8 +360,8 @@ function EvaluateSection({
   const [result, setResult] = useState<EvaluationResult | null>(null)
   const [metadata, setMetadata] = useState<EvaluationMetadata | null>(null)
 
-  const handleScoreChange = (criterion: keyof CriteriaScores, value: number[]) => {
-    setScores(prev => ({ ...prev, [criterion]: value[0] }))
+  const handleScoreChange = (criterion: keyof CriteriaScores, value: number) => {
+    setScores(prev => ({ ...prev, [criterion]: value }))
   }
 
   const handleGenerateEvaluation = async () => {
@@ -492,7 +492,7 @@ function EvaluateSection({
                 <div className="flex items-center gap-4">
                   <Slider
                     value={[scores[criterion]]}
-                    onValueChange={(value) => handleScoreChange(criterion, value)}
+                    onValueChange={(value) => handleScoreChange(criterion, value[0])}
                     min={1}
                     max={10}
                     step={1}
