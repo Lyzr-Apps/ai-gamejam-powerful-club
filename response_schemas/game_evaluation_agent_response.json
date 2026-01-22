@@ -1,0 +1,254 @@
+{
+  "agent_name": "Game Evaluation Agent",
+  "agent_id": "6972544f1d92f5e2dd22ee9c",
+  "agent_purpose": "analyzer",
+  "description": "Returns comprehensive game jam evaluation with weighted scores, rule compliance assessment, and constructive developmental feedback",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "game_name": "string",
+      "team_name": "string",
+      "weighted_score": "number",
+      "max_possible_score": "number",
+      "percentage_score": "number",
+      "score_breakdown": [
+        {
+          "criterion": "string",
+          "raw_score": "number",
+          "weight": "number",
+          "weighted_score": "number"
+        }
+      ],
+      "rule_compliance": {
+        "compliant": "boolean",
+        "assessment": "string",
+        "theme_alignment": "string"
+      },
+      "feedback": {
+        "strengths": [
+          "string"
+        ],
+        "areas_for_growth": [
+          "string"
+        ],
+        "creative_insights": [
+          "string"
+        ],
+        "learning_opportunities": [
+          "string"
+        ]
+      },
+      "rank_recommendation": "string",
+      "summary": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "evaluation_version": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "game_name": "AI Puzzle Quest",
+      "team_name": "Creative Coders",
+      "weighted_score": 769,
+      "max_possible_score": 900,
+      "percentage_score": 85.44,
+      "score_breakdown": [
+        {
+          "criterion": "originality",
+          "raw_score": 8,
+          "weight": 15,
+          "weighted_score": 120
+        },
+        {
+          "criterion": "aiToolUsage",
+          "raw_score": 9,
+          "weight": 20,
+          "weighted_score": 180
+        },
+        {
+          "criterion": "playability",
+          "raw_score": 7,
+          "weight": 15,
+          "weighted_score": 105
+        },
+        {
+          "criterion": "polish",
+          "raw_score": 6,
+          "weight": 10,
+          "weighted_score": 60
+        },
+        {
+          "criterion": "completeness",
+          "raw_score": 7,
+          "weight": 10,
+          "weighted_score": 70
+        },
+        {
+          "criterion": "presentation",
+          "raw_score": 8,
+          "weight": 10,
+          "weighted_score": 80
+        },
+        {
+          "criterion": "technicalComplexity",
+          "raw_score": 5,
+          "weight": 5,
+          "weighted_score": 25
+        },
+        {
+          "criterion": "accessibility",
+          "raw_score": 8,
+          "weight": 5,
+          "weighted_score": 40
+        },
+        {
+          "criterion": "ruleRelevance",
+          "raw_score": 9,
+          "weight": 10,
+          "weighted_score": 90
+        }
+      ],
+      "rule_compliance": {
+        "compliant": true,
+        "assessment": "The game uses both DALL-E and ChatGPT, fulfilling the requirement to use at least two AI tools. It is fully playable in a browser as mandated, and the focus on AI-generated art directly engages with the 'Artistic Expression' theme. All event rules are respected.",
+        "theme_alignment": "Strong alignment through creative use of AI-generated artwork as the central element of the puzzle experience."
+      },
+      "feedback": {
+        "strengths": [
+          "Innovative integration of AI-generated art and puzzle mechanics.",
+          "Effective use of DALL-E and ChatGPT as complementary AI tools.",
+          "Strong thematic alignment\u2014artistic expression is vividly present throughout the game.",
+          "Presentation and accessibility are handled well, making the game approachable for a broad audience."
+        ],
+        "areas_for_growth": [
+          "Polish could be improved, such as refining UI elements or adding smoother transitions.",
+          "Technical complexity might be expanded, perhaps through more advanced puzzle logic or unique interactions.",
+          "Playability could benefit from additional playtesting to ensure all puzzles are intuitive and engaging."
+        ],
+        "creative_insights": [
+          "The combination of visual AI art and natural language AI hints creates a unique multisensory experience.",
+          "Using AI as both a content generator and an aid enhances replayability and opens new creative directions."
+        ],
+        "learning_opportunities": [
+          "Demonstrated strong skills in integrating AI APIs for art generation and in-game assistance.",
+          "Showed ability to design around a theme using external tools as creative partners.",
+          "Opportunity to deepen technical skills by experimenting with more complex game logic or AI-driven puzzle adaptation."
+        ]
+      },
+      "rank_recommendation": "Strong contender\u2014recommended for top rankings in innovation and theme adherence.",
+      "summary": "AI Puzzle Quest is an imaginative and well-executed puzzle game leveraging two AI tools to great effect. Its strong thematic adherence, creative mechanic integration, and accessible presentation stand out. With further polish and technical depth, it could reach an even higher standard."
+    },
+    "metadata": {
+      "agent_name": "Game Evaluation Agent",
+      "timestamp": "2024-06-16T08:56:03Z",
+      "evaluation_version": "1.0"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-01-22T16:47:42.166712",
+  "test_message_used": "Analyze this sample data for testing",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "game_name": "AI Puzzle Quest",
+      "team_name": "Creative Coders",
+      "weighted_score": 769,
+      "max_possible_score": 900,
+      "percentage_score": 85.44,
+      "score_breakdown": [
+        {
+          "criterion": "originality",
+          "raw_score": 8,
+          "weight": 15,
+          "weighted_score": 120
+        },
+        {
+          "criterion": "aiToolUsage",
+          "raw_score": 9,
+          "weight": 20,
+          "weighted_score": 180
+        },
+        {
+          "criterion": "playability",
+          "raw_score": 7,
+          "weight": 15,
+          "weighted_score": 105
+        },
+        {
+          "criterion": "polish",
+          "raw_score": 6,
+          "weight": 10,
+          "weighted_score": 60
+        },
+        {
+          "criterion": "completeness",
+          "raw_score": 7,
+          "weight": 10,
+          "weighted_score": 70
+        },
+        {
+          "criterion": "presentation",
+          "raw_score": 8,
+          "weight": 10,
+          "weighted_score": 80
+        },
+        {
+          "criterion": "technicalComplexity",
+          "raw_score": 5,
+          "weight": 5,
+          "weighted_score": 25
+        },
+        {
+          "criterion": "accessibility",
+          "raw_score": 8,
+          "weight": 5,
+          "weighted_score": 40
+        },
+        {
+          "criterion": "ruleRelevance",
+          "raw_score": 9,
+          "weight": 10,
+          "weighted_score": 90
+        }
+      ],
+      "rule_compliance": {
+        "compliant": true,
+        "assessment": "The game uses both DALL-E and ChatGPT, fulfilling the requirement to use at least two AI tools. It is fully playable in a browser as mandated, and the focus on AI-generated art directly engages with the 'Artistic Expression' theme. All event rules are respected.",
+        "theme_alignment": "Strong alignment through creative use of AI-generated artwork as the central element of the puzzle experience."
+      },
+      "feedback": {
+        "strengths": [
+          "Innovative integration of AI-generated art and puzzle mechanics.",
+          "Effective use of DALL-E and ChatGPT as complementary AI tools.",
+          "Strong thematic alignment\u2014artistic expression is vividly present throughout the game.",
+          "Presentation and accessibility are handled well, making the game approachable for a broad audience."
+        ],
+        "areas_for_growth": [
+          "Polish could be improved, such as refining UI elements or adding smoother transitions.",
+          "Technical complexity might be expanded, perhaps through more advanced puzzle logic or unique interactions.",
+          "Playability could benefit from additional playtesting to ensure all puzzles are intuitive and engaging."
+        ],
+        "creative_insights": [
+          "The combination of visual AI art and natural language AI hints creates a unique multisensory experience.",
+          "Using AI as both a content generator and an aid enhances replayability and opens new creative directions."
+        ],
+        "learning_opportunities": [
+          "Demonstrated strong skills in integrating AI APIs for art generation and in-game assistance.",
+          "Showed ability to design around a theme using external tools as creative partners.",
+          "Opportunity to deepen technical skills by experimenting with more complex game logic or AI-driven puzzle adaptation."
+        ]
+      },
+      "rank_recommendation": "Strong contender\u2014recommended for top rankings in innovation and theme adherence.",
+      "summary": "AI Puzzle Quest is an imaginative and well-executed puzzle game leveraging two AI tools to great effect. Its strong thematic adherence, creative mechanic integration, and accessible presentation stand out. With further polish and technical depth, it could reach an even higher standard."
+    },
+    "metadata": {
+      "agent_name": "Game Evaluation Agent",
+      "timestamp": "2024-06-16T08:56:03Z",
+      "evaluation_version": "1.0"
+    }
+  },
+  "test_passed": true
+}

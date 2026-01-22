@@ -1,0 +1,80 @@
+{
+  "workflow_name": "Game Jam AI Judging Assistant",
+  "workflow_type": "single_agent",
+  "created_at": "2026-01-22T00:00:00Z",
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "Game Submission Input",
+      "nodeCategory": "input",
+      "position": {
+        "x": 100,
+        "y": 200
+      },
+      "data": {
+        "description": "User submits game details, scores, weights, and compliance information"
+      }
+    },
+    {
+      "id": "game_evaluation_agent",
+      "type": "Agent",
+      "label": "Game Evaluation Agent",
+      "nodeCategory": "agent",
+      "position": {
+        "x": 400,
+        "y": 200
+      },
+      "data": {
+        "agent_id": "6972544f1d92f5e2dd22ee9c",
+        "agent_name": "Game Evaluation Agent",
+        "description": "Analyzes game submissions against configured criteria including rule relevance, calculates weighted scores, assesses compliance with event rules/theme, generates rankings, and produces detailed constructive feedback focused on learning and creative exploration",
+        "provider": "OpenAI",
+        "model": "gpt-4.1",
+        "temperature": 0.4,
+        "top_p": 1
+      }
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Evaluation Results",
+      "nodeCategory": "end",
+      "position": {
+        "x": 700,
+        "y": 200
+      },
+      "data": {
+        "description": "Returns comprehensive evaluation with weighted scores, compliance assessment, and feedback"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "source": "input_node",
+      "target": "game_evaluation_agent",
+      "type": "default"
+    },
+    {
+      "id": "edge-2",
+      "source": "game_evaluation_agent",
+      "target": "output_node",
+      "type": "default"
+    }
+  ],
+  "agents": [
+    {
+      "agent_id": "6972544f1d92f5e2dd22ee9c",
+      "agent_name": "Game Evaluation Agent",
+      "agent_type": "single",
+      "description": "Analyzes game submissions against configured criteria including rule relevance, calculates weighted scores, assesses compliance with event rules/theme, generates rankings, and produces detailed constructive feedback focused on learning and creative exploration",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.4,
+      "top_p": 1,
+      "trigger": "Generate Evaluation on Evaluation Form",
+      "response_schema_file": "response_schemas/game_evaluation_agent_response.json"
+    }
+  ]
+}
