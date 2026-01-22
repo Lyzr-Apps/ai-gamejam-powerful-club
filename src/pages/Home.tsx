@@ -344,15 +344,15 @@ function EvaluateSection({
   const [teamName, setTeamName] = useState('')
   const [description, setDescription] = useState('')
   const [scores, setScores] = useState<CriteriaScores>({
-    originality: 5,
-    aiToolUsage: 5,
-    playability: 5,
-    polish: 5,
-    completeness: 5,
-    presentation: 5,
-    technicalComplexity: 5,
-    accessibility: 5,
-    ruleRelevance: 5
+    originality: 0,
+    aiToolUsage: 0,
+    playability: 0,
+    polish: 0,
+    completeness: 0,
+    presentation: 0,
+    technicalComplexity: 0,
+    accessibility: 0,
+    ruleRelevance: 0
   })
   const [complianceNotes, setComplianceNotes] = useState('')
   const [loading, setLoading] = useState(false)
@@ -367,6 +367,15 @@ function EvaluateSection({
   const handleGenerateEvaluation = async () => {
     if (!gameName.trim() || !teamName.trim()) {
       setError('Game name and team name are required')
+      return
+    }
+
+    // Check if all scores are set (not 0)
+    const unscoredCriteria = (Object.keys(scores) as Array<keyof CriteriaScores>).filter(
+      criterion => scores[criterion] === 0
+    )
+    if (unscoredCriteria.length > 0) {
+      setError(`Please score all criteria. Missing: ${unscoredCriteria.map(c => CRITERIA_LABELS[c]).join(', ')}`)
       return
     }
 
@@ -420,6 +429,21 @@ function EvaluateSection({
     setResult(null)
     setMetadata(null)
     setError(null)
+    setGameName('')
+    setTeamName('')
+    setDescription('')
+    setComplianceNotes('')
+    setScores({
+      originality: 0,
+      aiToolUsage: 0,
+      playability: 0,
+      polish: 0,
+      completeness: 0,
+      presentation: 0,
+      technicalComplexity: 0,
+      accessibility: 0,
+      ruleRelevance: 0
+    })
   }
 
   return (
@@ -493,14 +517,20 @@ function EvaluateSection({
                   <Slider
                     value={[scores[criterion]]}
                     onValueChange={(value) => handleScoreChange(criterion, value[0])}
-                    min={1}
+                    min={0}
                     max={10}
                     step={1}
                     className="flex-1"
                   />
-                  <div className="w-12 text-center">
-                    <div className="text-lg font-bold text-white">{scores[criterion]}</div>
-                    <div className="text-xs text-gray-500">/ 10</div>
+                  <div className="w-16 text-center">
+                    {scores[criterion] === 0 ? (
+                      <div className="text-sm text-red-400">Not set</div>
+                    ) : (
+                      <>
+                        <div className="text-lg font-bold text-white">{scores[criterion]}</div>
+                        <div className="text-xs text-gray-500">/ 10</div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
