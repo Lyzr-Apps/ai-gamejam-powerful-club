@@ -514,13 +514,14 @@ function EvaluateSection({
                   </Badge>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Slider
-                    value={[scores[criterion]]}
-                    onValueChange={(value) => handleScoreChange(criterion, value[0])}
+                  <input
+                    type="range"
+                    value={scores[criterion]}
+                    onChange={(e) => handleScoreChange(criterion, Number(e.target.value))}
                     min={0}
                     max={10}
                     step={1}
-                    className="flex-1"
+                    className="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                   />
                   <div className="w-16 text-center">
                     {scores[criterion] === 0 ? (
